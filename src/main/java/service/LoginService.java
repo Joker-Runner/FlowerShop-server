@@ -27,12 +27,12 @@ public class LoginService {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Properties properties = new Properties();
-            properties.setProperty("user", "root");
+            properties.setProperty("user", "zhang520");
             properties.setProperty("password", "zhang520");
             properties.setProperty("useSSL", "false");
             properties.setProperty("autoReconnect", "true");
 
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/flower_shop", properties);
+            conn = DriverManager.getConnection("jdbc:mysql://123.206.201.169:3306/flower_shop", properties);
             statement = conn.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM users WHERE username='" +
                     userBean.getUserName() + "'");
