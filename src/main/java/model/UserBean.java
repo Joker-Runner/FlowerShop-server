@@ -1,8 +1,12 @@
 package model;
 
+import org.springframework.stereotype.Component;
+
 /**
+ * 用户 Bean
  * Created by joker on 4/11 0011.
  */
+@Component
 public class UserBean {
     private String userName;
     private String passWord;
