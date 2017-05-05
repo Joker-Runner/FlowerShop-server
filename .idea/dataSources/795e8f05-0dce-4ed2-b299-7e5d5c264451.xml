@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="flower_shop@127.0.0.1">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="flower_shop">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="jsp_db"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="sakila"/>
+    <schema id="8" parent="1" name="sys"/>
+    <schema id="9" parent="1" name="world"/>
+    <table id="10" parent="2" name="users"/>
+    <column id="11" parent="10" name="username">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="12" parent="10" name="password">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <index id="13" parent="10" name="username_UNIQUE">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="14" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="15" parent="10" name="username_UNIQUE">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username_UNIQUE</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
