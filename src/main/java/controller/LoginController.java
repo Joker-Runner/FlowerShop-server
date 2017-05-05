@@ -1,8 +1,8 @@
 package controller;
 
 import model.UserBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import service.LoginService;
+import org.springframework.stereotype.Controller;
+import service.DatabaseService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,18 +13,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
+ * 登录的Controller
  * Created by joker on 4/11 0011.
  */
 @WebServlet("/login")
-public class LoginController extends HttpServlet{
-    LoginService loginService = new LoginService();
+@Controller
+public class LoginController extends HttpServlet {
+    private DatabaseService databaseService = new DatabaseService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         resp.setContentType("text/html");
 
         PrintWriter out = resp.getWriter();
-        out.println("<html><body><h2>Hello World! Today is " + new java.util.Date() + "</h2></body></html>");
+        out.println("<html><body><h2>Sign In! Today is " + new java.util.Date() + "</h2></body></html>");
         out.close();
     }
 
@@ -33,9 +36,6 @@ public class LoginController extends HttpServlet{
         UserBean userBean = new UserBean();
         userBean.setUserName(req.getParameter("username"));
         userBean.setPassWord(req.getParameter("password"));
-        if (loginService.queryLogin(userBean)){
-//            resp.sendRedirect(req.getContextPath() + "/login_success.jsp");
-            resp.getWriter().print(true);
-        }
+            resp.getWriter().print(databaseService.login(userBean));
     }
 }

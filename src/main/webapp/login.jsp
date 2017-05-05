@@ -11,7 +11,7 @@
     <title>Login</title>
 </head>
 <body>
-<form action="./login" method="post">
+<form action="login" method="post">
     <p class="main">
         <label>用户名: </label>
         <input name="username" value="" />
