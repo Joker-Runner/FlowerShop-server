@@ -1,0 +1,25 @@
+body {
+    padding-top: 50px;
+}
+
+.blog-post {
+    margin-bottom: 30px;
+}
+
+.blog-post-title {
+    margin-bottom: 5px;
+}
+
+.blog-post-title a {
+    color: #212121;
+}
+
+.blog-post-meta {
+    margin-bottom: 15px;
+    color: #999;
+    font-size: 14px;
+}
+
+.blog-post-content {
+    font-size: 15px;
+}

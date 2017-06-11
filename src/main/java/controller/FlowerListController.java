@@ -19,21 +19,28 @@ import java.io.IOException;
 @Controller
 public class FlowerListController extends HttpServlet {
 
-    DatabaseService databaseService = new DatabaseService();
+    private DatabaseService databaseService = new DatabaseService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         resp.setCharacterEncoding("utf-8");
         GsonBuilder gsonBuilder = new GsonBuilder();
-        String flowerList = gsonBuilder.create().toJson(databaseService.queryFlower());
+        String flowerList = gsonBuilder.create().toJson(databaseService.queryAllFlower());
         resp.getWriter().print(flowerList);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        doGet(req, resp);
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        int startNumber = Integer.parseInt(req.getParameter("start_number"));
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        String flowerList = gsonBuilder.create().toJson(databaseService.queryFlowers(startNumber));
+        resp.getWriter().print(flowerList);
+
+//        doGet(req, resp);
 //        resp.setContentType("text/html");
 //        resp.setCharacterEncoding("utf-8");
 //        GsonBuilder gsonBuilder = new GsonBuilder();

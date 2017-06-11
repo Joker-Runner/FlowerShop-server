@@ -14,7 +14,6 @@
 
 <form action="flower_list" method="get" >
     <input type="submit" value="查询" class="flower">
-
 </form>
 
 </body>

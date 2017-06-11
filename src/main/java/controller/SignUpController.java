@@ -23,19 +23,21 @@ public class SignUpController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        resp.setContentType("text/html");
-
-        PrintWriter out = resp.getWriter();
-        out.println("<html><body><h2>Sign Up! Today is " + new java.util.Date() + "</h2></body></html>");
-        out.close();
+        req.getRequestDispatcher("/WEB-INF/view/sign_up.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         UserBean userBean = new UserBean();
-        userBean.setUserName(req.getParameter("username"));
+        userBean.setUsername(req.getParameter("username"));
+        userBean.setEmail(req.getParameter("email"));
         userBean.setPassWord(req.getParameter("password"));
-        resp.getWriter().print(databaseService.signUp(userBean));
+        int success = databaseService.signUp(userBean);
+        resp.getWriter().print(success);
+//        if (success==1){
+//            resp.sendRedirect(req.getContextPath()+"/login.html");
+//        }
     }
 }

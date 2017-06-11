@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="flower_shop@127.0.0.1">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
     <root id="1"/>
     <schema id="2" parent="1" name="flower_shop">
       <Current>1</Current>
@@ -13,28 +13,27 @@
     <schema id="7" parent="1" name="sakila"/>
     <schema id="8" parent="1" name="sys"/>
     <schema id="9" parent="1" name="world"/>
-    <table id="10" parent="2" name="users"/>
-    <column id="11" parent="10" name="username">
+    <table id="10" parent="2" name="demo"/>
+    <column id="11" parent="10" name="id">
       <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="12" parent="10" name="username">
+      <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="12" parent="10" name="password">
-      <Position>2</Position>
+    <column id="13" parent="10" name="password">
+      <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="13" parent="10" name="username_UNIQUE">
-      <ColNames>username</ColNames>
-      <Unique>1</Unique>
-    </index>
     <key id="14" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>username</ColNames>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
-    </key>
-    <key id="15" parent="10" name="username_UNIQUE">
-      <ColNames>username</ColNames>
-      <UnderlyingIndexName>username_UNIQUE</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>
